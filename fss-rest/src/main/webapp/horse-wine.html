@@ -1,0 +1,37 @@
+<!-- http://stackoverflow.com/questions/16509755/how-to-use-checkbox-to-filter-results-with-angular -->
+
+<!doctype html>
+<html ng-app >
+<head>
+  <meta charset="utf-8">
+  <title>AngularJS Plunker</title>
+  <script>document.write('<base href="' + document.location + '" />');</script>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular.min.js"></script>
+  <script src="horse.js"></script>
+</head>
+<!-- <body ng-controller="MainCtrl"> -->
+<body ng-controller="HorseCtrl">
+<div>{{ error }}</div>
+<div data-ng-repeat="horse in horses">
+  <!-- record that this customer has been selected -->
+ <input type="checkbox" ng-checked="horse.checked" ng-model="horse.checked" />
+  {{ horse.id }}
+</div>
+<br>
+
+<br>
+ <table>
+<!-- table heading goes here -->  
+  <tbody>
+      <!-- use our custom filter to only display customers from the cities selected -->
+      <tr data-ng-repeat="horse in horses | selectedHorseIds">
+          <td>{{ horse.id }}</td>
+          <td>{{ horse.name }}</td>
+
+      </tr>
+  </tbody>
+</table>
+  
+</body>
+</html>

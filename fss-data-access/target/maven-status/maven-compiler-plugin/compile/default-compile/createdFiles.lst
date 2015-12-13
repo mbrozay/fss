@@ -1,0 +1,17 @@
+org\mbweb\fss\data_access\model\Test2col.class
+org\mbweb\fss\data_access\TestMains\SimpleGson$1.class
+org\mbweb\fss\data_access\TestMains\SimpleGson.class
+org\mbweb\fss\data_access\model\Player_Horse_noId.class
+org\mbweb\fss\data_access\serialize\HorseSerialize.class
+org\mbweb\fss\data_access\util\HibernateUtil.class
+org\mbweb\fss\data_access\TestMains\SimpleGson$DataObject.class
+org\mbweb\fss\data_access\model\Player.class
+org\mbweb\fss\data_access\model\Trainer.class
+org\mbweb\fss\data_access\TestMains\User.class
+org\mbweb\fss\data_access\model\Player_horse.class
+org\mbweb\fss\data_access\TestMains\TestCrud.class
+org\mbweb\fss\data_access\TestMains\SimpleHQL.class
+org\mbweb\fss\data_access\TestMains\TestJacksonMain.class
+org\mbweb\fss\data_access\TestMains\SimpleHQLGson.class
+org\mbweb\fss\data_access\model\Horse.class
+org\mbweb\fss\data_access\TestMains\TestCallObjectList.class
