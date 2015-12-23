@@ -7,6 +7,7 @@ import org.mbweb.fss.data_access.model.PlayerJson;
 import org.mbweb.fss.data_access.model.Player_Horse_noId;
 import org.mbweb.fss.restfuljson.dao.ListHorseById;
 import org.mbweb.fss.restfuljson.dao.returnHorses;
+import org.mbweb.fss.restfuljson.dao.returnHorsesPlayer;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -30,6 +31,14 @@ public class Controller {
     public String thl() throws JsonProcessingException{
 		returnHorses rh1 = new returnHorses();
     	String horse = rh1.HorseList();
+		return horse;
+}
+	
+	@CrossOrigin(origins = "*")
+	@RequestMapping("/horseSelector")
+    public String thl1() throws JsonProcessingException{
+		returnHorsesPlayer rh1 = new returnHorsesPlayer();
+    	String horse = rh1.HorePlayerList();
 		return horse;
 }
 	

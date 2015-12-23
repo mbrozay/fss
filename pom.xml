@@ -8,7 +8,6 @@
   <name>fss-parent</name>
   <modules>
   	<module>fss-data-access</module>
-    <module>fss-rest</module>
     <module>fss-rest-json</module>
   </modules>
 </project>

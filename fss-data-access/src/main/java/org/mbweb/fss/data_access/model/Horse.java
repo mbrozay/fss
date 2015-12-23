@@ -1,5 +1,7 @@
 package org.mbweb.fss.data_access.model;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,6 +30,7 @@ public class Horse {
 	@ManyToOne
 	@JoinColumn(name="trainerId")
 	private Trainer trainer;
+	private BigDecimal value;
 
 
 	public long getId() {
@@ -53,6 +56,16 @@ public class Horse {
 	public void setTrainer(Trainer trainer) {
 		this.trainer = trainer;
 	}
+
+	public BigDecimal getValue() {
+		return value;
+	}
+
+	public void setValue(BigDecimal value) {
+		this.value = value;
+	}
+	
+	
 
 	
 }
