@@ -1,7 +1,6 @@
-package org.mbweb.fss.data_access.model;
+package org.mbweb.fss.restfuljson.model;
 
-public class PlayerJson {
-
+public class Player_pojo {
 	public String firstName;
 	public String lastName;
 	public String username;
@@ -40,6 +39,6 @@ public class PlayerJson {
 		this.message = message;
 	}
 
-	
+
 	
 }

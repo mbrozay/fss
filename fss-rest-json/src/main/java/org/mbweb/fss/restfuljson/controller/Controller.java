@@ -4,11 +4,14 @@ import java.io.IOException;
 import java.util.List;
 
 import org.mbweb.fss.data_access.model.HorseSelectorJson;
+import org.mbweb.fss.data_access.model.Player;
 import org.mbweb.fss.data_access.model.PlayerJson;
 import org.mbweb.fss.data_access.model.Player_Horse_noId;
 import org.mbweb.fss.restfuljson.dao.ListHorseById;
+import org.mbweb.fss.restfuljson.dao.NewPlayer;
 import org.mbweb.fss.restfuljson.dao.returnHorses;
 import org.mbweb.fss.restfuljson.dao.returnHorsesPlayer;
+import org.mbweb.fss.restfuljson.model.Player_pojo;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -63,11 +66,14 @@ public class Controller {
 	
 	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)	
-	public  @ResponseBody String saveCompany_JSON( @RequestBody PlayerJson playerjson ) throws JsonProcessingException   {		
+	public  @ResponseBody String signup_JSON( @RequestBody Player player ) throws JsonProcessingException   {		
+		NewPlayer newplayer = new NewPlayer();
+		String result = newplayer.PlayerSignup(player);
+		Player_pojo playerpojo = new Player_pojo();
+		playerpojo.setMessage(result + " " + player.getFirstName());
 		
 		ObjectMapper mapper = new ObjectMapper();
-		playerjson.setMessage("Success from " + playerjson.getFirstName());
-		String jsonInString = mapper.writeValueAsString(playerjson);
+		String jsonInString = mapper.writeValueAsString(playerpojo);
 		
 		return jsonInString;
 	}
