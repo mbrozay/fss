@@ -3,6 +3,7 @@ package org.mbweb.fss.restfuljson.controller;
 import java.io.IOException;
 import java.util.List;
 
+import org.mbweb.fss.data_access.model.HorseSelectorJson;
 import org.mbweb.fss.data_access.model.PlayerJson;
 import org.mbweb.fss.data_access.model.Player_Horse_noId;
 import org.mbweb.fss.restfuljson.dao.ListHorseById;
@@ -67,6 +68,17 @@ public class Controller {
 		ObjectMapper mapper = new ObjectMapper();
 		playerjson.setMessage("Success from " + playerjson.getFirstName());
 		String jsonInString = mapper.writeValueAsString(playerjson);
+		
+		return jsonInString;
+	}
+	
+	@CrossOrigin(origins = "*")
+	@RequestMapping(value = "/horseSelector", method = RequestMethod.POST)	
+	public  @ResponseBody String horseSelecto_JSON( @RequestBody HorseSelectorJson horseSelectorJson) throws JsonProcessingException   {		
+		
+		ObjectMapper mapper = new ObjectMapper();
+		horseSelectorJson.setMessage("Success from " + horseSelectorJson.getHorsename());
+		String jsonInString = mapper.writeValueAsString(horseSelectorJson);
 		
 		return jsonInString;
 	}
