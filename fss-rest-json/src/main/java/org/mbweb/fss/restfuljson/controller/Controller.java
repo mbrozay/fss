@@ -8,10 +8,12 @@ import org.mbweb.fss.data_access.model.Player;
 import org.mbweb.fss.data_access.model.PlayerJson;
 import org.mbweb.fss.data_access.model.Player_Horse_noId;
 import org.mbweb.fss.restfuljson.dao.ListHorseById;
+import org.mbweb.fss.restfuljson.dao.LoginValidate;
 import org.mbweb.fss.restfuljson.dao.NewPlayer;
 import org.mbweb.fss.restfuljson.dao.returnHorses;
 import org.mbweb.fss.restfuljson.dao.returnHorsesPlayer;
 import org.mbweb.fss.restfuljson.model.Player_pojo;
+import org.mbweb.fss.restfuljson.model.Login_pojo;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -62,6 +64,19 @@ public class Controller {
 		ListHorseById lhbi = new ListHorseById();
 		String horseName = lhbi.HorseListJson(horseDetailJson);
 		return horseName;
+	}
+	
+	@CrossOrigin(origins = "*")
+	@RequestMapping(value = "/login", method = RequestMethod.POST)	
+	public  @ResponseBody String login_JSON( @RequestBody Login_pojo login ) throws JsonProcessingException   {		
+		LoginValidate loginValidate = new LoginValidate();
+		String result = loginValidate.LoginCheckCreds(login);
+		login.setResponse(result);
+		
+		ObjectMapper mapper = new ObjectMapper();
+		String jsonInString = mapper.writeValueAsString(login);
+		
+		return jsonInString;
 	}
 	
 	@CrossOrigin(origins = "*")
