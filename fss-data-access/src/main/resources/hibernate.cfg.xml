@@ -48,6 +48,7 @@
         <mapping class = "org.mbweb.fss.data_access.model.Trainer"/>
         <mapping class = "org.mbweb.fss.data_access.model.Player"/>
         <mapping class = "org.mbweb.fss.data_access.model.Player_horse"/>
+        <mapping class = "org.mbweb.fss.data_access.model.SessionToken"/>
         <mapping class = "org.mbweb.fss.data_access.model.Test2col"/>
 
     </session-factory>

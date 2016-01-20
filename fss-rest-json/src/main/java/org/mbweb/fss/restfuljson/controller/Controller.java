@@ -7,12 +7,14 @@ import org.mbweb.fss.data_access.model.HorseSelectorJson;
 import org.mbweb.fss.data_access.model.Player;
 import org.mbweb.fss.data_access.model.PlayerJson;
 import org.mbweb.fss.data_access.model.Player_Horse_noId;
+import org.mbweb.fss.restfuljson.dao.HorsePicker;
 import org.mbweb.fss.restfuljson.dao.ListHorseById;
 import org.mbweb.fss.restfuljson.dao.LoginValidate;
 import org.mbweb.fss.restfuljson.dao.NewPlayer;
 import org.mbweb.fss.restfuljson.dao.returnHorses;
 import org.mbweb.fss.restfuljson.dao.returnHorsesPlayer;
 import org.mbweb.fss.restfuljson.model.Player_pojo;
+import org.mbweb.fss.restfuljson.model.HorsePicker_pojo;
 import org.mbweb.fss.restfuljson.model.Login_pojo;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -89,6 +91,21 @@ public class Controller {
 		
 		ObjectMapper mapper = new ObjectMapper();
 		String jsonInString = mapper.writeValueAsString(playerpojo);
+		
+		return jsonInString;
+	}
+	
+	@CrossOrigin(origins = "*")
+	@RequestMapping(value = "/horsePicker", method = RequestMethod.POST)	
+	public  @ResponseBody String horsePicker_JSON( @RequestBody HorsePicker_pojo horsePicker_pojo ) throws JsonProcessingException   {		
+		HorsePicker horsePicker = new HorsePicker();
+		String result = horsePicker.SelectHorses(horsePicker_pojo);
+		
+		
+		horsePicker_pojo.setResponse(result);
+		
+		ObjectMapper mapper = new ObjectMapper();
+		String jsonInString = mapper.writeValueAsString(horsePicker_pojo);
 		
 		return jsonInString;
 	}
