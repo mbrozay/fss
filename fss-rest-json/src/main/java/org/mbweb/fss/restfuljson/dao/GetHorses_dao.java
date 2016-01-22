@@ -30,10 +30,11 @@ public class GetHorses_dao {
 		String horseSeletorHql = "Select new map (hid.name as horsename, hid.id as horseid,\n"
 				+ "ph.active as selectedHorse, hid.value as value)\n" 
 		+ "from Player_horse as ph right outer join ph.horseId as hid with\n"
-		+ "ph.playerId.id = :playerId";
+		+ "ph.playerId.id = :playerId and ph.active = :statusBoolean";
 		Query horseSelectorQuery = 
 				session.createQuery(horseSeletorHql);
 		horseSelectorQuery.setParameter("playerId", playerId);	
+		horseSelectorQuery.setParameter("statusBoolean", true);
 
 		ArrayList<Object[]> allPlayerHorse = (ArrayList<Object[]>) horseSelectorQuery.list();
 		System.out.println("Size of list result is " + allPlayerHorse.size());

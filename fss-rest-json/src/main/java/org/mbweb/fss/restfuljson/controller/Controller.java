@@ -100,6 +100,7 @@ public class Controller {
 	@CrossOrigin(origins = "*")
 	@RequestMapping(value = "/horsePicker", method = RequestMethod.POST)	
 	public  @ResponseBody String horsePicker_JSON( @RequestBody HorsePicker_pojo horsePicker_pojo ) throws JsonProcessingException   {		
+		
 		HorsePicker horsePicker = new HorsePicker();
 		String result = horsePicker.SelectHorses(horsePicker_pojo);
 		
